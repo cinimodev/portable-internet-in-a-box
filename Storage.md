@@ -1,3 +1,9 @@
+## Chapters
+1. [Primary motivation & goals](https://github.com/cinimodev/portable-internet-in-a-box)
+2. [Containers in use](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Containers%20in%20use.md)
+3. [Power requirements](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Power%20Requirements.md)
+4. [Storage (this page)](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Storage.md)
+
 ## Storage
 This is probably going to be the biggest struggle. Looking at the movie & TV show list from everyone -plus Wikipedia, music, and books/PDFs - I probably need around 500 GB of storage for this box. 
 

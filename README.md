@@ -3,6 +3,12 @@ This project is build an internet-in-a-box system that runs 100% off battery for
 
 My homelab is also an "internet in a box" with much more storage. It is designed for being disconnected from the public internet. However, this only works if I still have access to power at home. Although it can run off of the generator, the combination of the server, hard drive array, switch, and router make it not usable from an offgrid situation. 
 
+## Chapters
+1. [Primary motivation & goals (this page)](https://github.com/cinimodev/portable-internet-in-a-box)
+2. [Containers in use](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Containers%20in%20use.md)
+3. [Power requirements](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Power%20Requirements.md)
+4. [Storage](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Storage.md)
+
 ## Primary goals
 In an ideal setup, this system should be able to operate directly from solar panels, a battery bank, or a car 12v connection without inverter. 
 

@@ -1,3 +1,9 @@
+## Chapters
+1. [Primary motivation & goals](https://github.com/cinimodev/portable-internet-in-a-box)
+2. [Containers in use](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Containers%20in%20use.md)
+3. [Power requirements (this page)](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Power%20Requirements.md)
+4. [Storage](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/Storage.md)
+
 ## Power
 My current bank is a [Jackery Explore 160](https://www.jackery.com/products/explorer-160-portable-power-station) that is rated at 167Wh. ~~However, I want to assume there is some loss in usage. I am estimating that it is 85% efficient, which puts it at an actual capacity of 142Wh.~~ I may be misunderstanding this. The efficiency loss may only come through the standard outlet when using a transformer. For example, when plugging in a laptop using the power brick, the brick is only 85% efficient. If I only plan to come out the USB ports on the power bank, I can assume 100% capacity.
 
