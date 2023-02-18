@@ -83,6 +83,6 @@ All of these numbers are with the GL.iNet router attached.
 #### Performance
 At idle, resource usage is low. 
 
-![Screenshot of btop system report showing CPU below 12% utilization and RAM below 1 gigabyte]
+![Screenshot of btop system report showing CPU below 12% utilization and RAM below 1 gigabyte](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/_images/Pasted%20image%2020221218191456.png)
 
 Even when streaming, the resource use is much lower than I anticipated. 
