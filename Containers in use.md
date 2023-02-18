@@ -32,7 +32,7 @@ docker run -d -e PUID=1000 -e PGID=1000 -e TZ=America/Los_Angeles --name=archive
 
 This is mapped to a folder that is being synced from my homelab to this box. I am doing it this way so I don't have to manage two different instances of ArchiveBox. In theory, I should be able to `rsync` the folder from my homelab to `portable_iiab` with the ArchiveBox docker instance on `portable_iiab` stopped. Then, in the scenario I need it, I can start the container and all they articles, plus my settings, should be synced. 
 
-#### FreshRSS
+## FreshRSS
 Using FreshRSS, I can access any articles it has collected from the feeds that are stored on the server. In my testing, any feed that delivers the full article in the feed is still accessible in the browser on FreshRSS, even if no internet is available. 
 
 I copied my existing FreshRSS installation on my homelab, which uses all the same configurations and users. 
@@ -44,7 +44,7 @@ Setup:
 docker run -d --name=freshrss -e PUID=1000 -e PGID=1000 -e TZ=America/Los_Angeles -p 8085:80 -v /mnt/stroage/docker_config/freshrss:/config --restart unless-stopped lscr.io/linuxserver/freshrss:latest
 ```
 
-#### Jellyfin 
+## Jellyfin 
 Since the core reason I am building this box is because there will not be access to the internet, Jellyfin is a no-brainer since it doesn't require it at all. 
 
 I'm not sure if the PBP will be able to keep up with streaming content to users. But, it will provide a usable interface for everyone to browse and then download what they want to watch. I will have to experiment with turning off transcoding, which will save a ton of CPU. 
@@ -58,7 +58,7 @@ Setup:
 docker run -d --name=jellyfin -e PUID=1000 -e PGID=1000 -e TZ=America/Los_Angeles  -e JELLYFIN_PublishedServerUrl=192.168.1.194 -p 8096:8096 -p 8920:8920 -p 7359:7359/udp -p 1900:1900/udp -v /mnt/storage/docker_config/jellyfin:/config -v /mnt/storage/media/iiab_tv:/data/tvshows -v /mnt/storage/media/iiab_movies:/data/movies -v /mnt/storage/media/iiab_youtube:/data/youtube --restart unless-stopped lscr.io/linuxserver/jellyfin:latest
 ```
 
-#### Navidrome
+## Navidrome
 Another offline first application. Once the music is added the service can operate offline with no issues for streaming music. 
 
 It doesn't have the capability to use directories as playlists, which is... unfortunate. However, the music is still in directories for lists on the server, which can be downloaded through Filebrowser. 
