@@ -39,15 +39,15 @@ $ sudo armbian-config
 
 Go to `System` and then `Desktop`.
 
-![[Pasted image 20221218185035.png]]
+![armbian-config menu screenshot](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/_images/Pasted%20image%2020221218185035.png)
 
 While in this tool, I also changed the CPU settings to reduce the power draw. Go to `System` and then `CPU`.  I set it to the CPU speed to the lowest setting, and then capped the speed at `1416000` so it can't draw higher under load. It may slow things down, but I need to keep the power draw under control. 
 
-![[Pasted image 20221218185348.png]]
+![armbian-config screenshot setting the max CPU frequency](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/_images/Pasted%20image%2020221218185207.png)
 
 Then, I set it to `powersave`, which dropped the power draw by 1-2 watts.
 
-![[Pasted image 20221218185207.png]]
+![armbian-config setting to powersave mode](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/_images/Pasted%20image%2020221218185348.png)
 
 Next, I disabled hibernation/sleep when the laptop lid is closed. [These are the commands](https://www.tecmint.com/disable-suspend-and-hibernation-in-linux/) to do this:
 
@@ -69,7 +69,7 @@ These changes will make it so the laptop does not sleep when the laptop lid is c
 
 In order to disable the screen, I had to physically disconnect the cable from the motherboard. It is simple to attach/detach if anything comes up later. Cable is located here:
 
-![[Pasted image 20221218192656.png]]
+![Bottom of Pinebook Pro removed and the display cable in the top right highlighted](https://github.com/cinimodev/portable-internet-in-a-box/blob/main/_images/Pasted%20image%2020221218192656.png)
 
 #### Real world power draw
 When sitting idle, the total power draw on the Jackery power bank is somewhere between 1-5 watts. 
@@ -83,8 +83,6 @@ All of these numbers are with the GL.iNet router attached.
 #### Performance
 At idle, resource usage is low. 
 
-![[Pasted image 20221218190903.png]]
+![Screenshot of btop system report showing CPU below 12% utilization and RAM below 1 gigabyte]
 
-Even when streaming, the resource use is much lower than I anticipated. This is while streaming a movie:
-
-![[Pasted image 20221218191456.png]]
+Even when streaming, the resource use is much lower than I anticipated. 
