@@ -11,7 +11,14 @@ This is so there will be a single page for everyone to access that will then hav
 *All paths shown below are the paths I have setup on my machine for the volumes. Adjust the file paths to your configuration.*
 
 ```bash
-docker run -d --name=heimdall -e PUID=1000 -e PGID=1000 -e TZ=America/Los_Angeles  -p 8083:80 -v /mnt/storage/docker_config/heimdall:/config --restart unless-stopped lscr.io/linuxserver/heimdall:latest
+docker run -d \  
+--name=heimdall \  
+-e PUID=1000 -e PGID=1000 \  
+-e TZ=America/Los_Angeles \  
+-p 8083:80 \  
+-v /mnt/storage/docker_config/heimdall:/config \  
+--restart unless-stopped \  
+lscr.io/linuxserver/heimdall:latest
 ```
 
 ## Articles, blogs, and resources
@@ -27,7 +34,14 @@ To do this I am going to use `rsync` to automatically copy from my homelab setup
 Run:
 
 ```bash
-docker run -d -e PUID=1000 -e PGID=1000 -e TZ=America/Los_Angeles --name=archive_box -p 8086:8000 -v /mnt/storage/docker_config/archivebox:/data --restart unless-stopped archivebox/archivebox
+docker run -d \  
+-e PUID=1000 -e PGID=1000 \  
+-e TZ=America/Los_Angeles \  
+--name=archive_box \  
+-p 8086:8000 \  
+-v /mnt/storage/docker_config/archivebox:/data \  
+--restart unless-stopped \  
+archivebox/archivebox
 ```
 
 This is mapped to a folder that is being synced from my homelab to this box. I am doing it this way so I don't have to manage two different instances of ArchiveBox. In theory, I should be able to `rsync` the folder from my homelab to `portable_iiab` with the ArchiveBox docker instance on `portable_iiab` stopped. Then, in the scenario I need it, I can start the container and all they articles, plus my settings, should be synced. 
@@ -41,7 +55,14 @@ Setup:
 *All paths shown below are the paths I have setup on my machine for the volumes. Adjust the file paths to your configuration.*
 
 ```bash
-docker run -d --name=freshrss -e PUID=1000 -e PGID=1000 -e TZ=America/Los_Angeles -p 8085:80 -v /mnt/stroage/docker_config/freshrss:/config --restart unless-stopped lscr.io/linuxserver/freshrss:latest
+docker run -d \  
+--name=freshrss \  
+-e PUID=1000 -e PGID=1000 \  
+-e TZ=America/Los_Angeles \  
+-p 8085:80 \  
+-v /mnt/stroage/docker_config/freshrss:/config \  
+--restart unless-stopped \  
+lscr.io/linuxserver/freshrss:latest
 ```
 
 ## Jellyfin 
@@ -55,7 +76,18 @@ Setup:
 *All paths shown below are the paths I have setup on my machine for the volumes. Adjust the file paths to your configuration.*
 
 ```bash
-docker run -d --name=jellyfin -e PUID=1000 -e PGID=1000 -e TZ=America/Los_Angeles  -e JELLYFIN_PublishedServerUrl=192.168.1.194 -p 8096:8096 -p 8920:8920 -p 7359:7359/udp -p 1900:1900/udp -v /mnt/storage/docker_config/jellyfin:/config -v /mnt/storage/media/iiab_tv:/data/tvshows -v /mnt/storage/media/iiab_movies:/data/movies -v /mnt/storage/media/iiab_youtube:/data/youtube --restart unless-stopped lscr.io/linuxserver/jellyfin:latest
+docker run -d \  
+--name=jellyfin \  
+-e PUID=1000 -e PGID=1000 \  
+-e TZ=America/Los_Angeles \  
+-e JELLYFIN_PublishedServerUrl=192.168.1.194 \  
+-p 8096:8096 -p 8920:8920 -p 7359:7359/udp -p 1900:1900/udp \  
+-v /mnt/storage/docker_config/jellyfin:/config \  
+-v /mnt/storage/media/iiab_tv:/data/tvshows \  
+-v /mnt/storage/media/iiab_movies:/data/movies \  
+-v /mnt/storage/media/iiab_youtube:/data/youtube \  
+--restart unless-stopped \  
+lscr.io/linuxserver/jellyfin:latest
 ```
 
 ## Navidrome
@@ -67,7 +99,16 @@ Setup:
 *All paths shown below are the paths I have setup on my machine for the volumes. Adjust the file paths to your configuration.*
 
 ```bash
-docker run -d --name navidrome --restart=unless-stopped --user $(id -u):$(id -g) -v /mnt/storage/media/iiab_music:/music -v /mnt/storage/docker_config/navidrome:/data -p 4533:4533 -e ND_LOGLEVEL=info -e TZ=America/Los_Angeles deluan/navidrome:latest
+docker run -d \  
+--name navidrome \  
+--restart=unless-stopped \  
+--user $(id -u):$(id -g) \  
+-v /mnt/storage/media/iiab_music:/music \  
+-v /mnt/storage/docker_config/navidrome:/data \  
+-p 4533:4533 \  
+-e ND_LOGLEVEL=info \  
+-e TZ=America/Los_Angeles \  
+deluan/navidrome:latest
 ```
 
 ## Wikipedia
@@ -86,5 +127,13 @@ https://download.kiwix.org/zim/
 *All paths shown below are the paths I have setup on my machine for the volumes. Adjust the file paths to your configuration.*Kiwix setup:
 
 ```bash
-docker run -d --name=kiwix -e TZ=America/Los_Angeles -e PUID=1000 -e PGID=1000 -p 8087:8080 -v /mnt/storage/docker_config/kiwix:/data --restart unless-stopped kiwix/kiwix-serve fas-military-medicine_en.zim www.ready.gov_en.zim zimgit-knots_en.zim zimgit-post-disaster_en.zim wikipedia_en_all_nopic_2022-01.zim zimgit-food-preparation_en.zim zimgit-medicine_en.zim zimgit-water_en.zim
+docker run -d \  
+--name=kiwix \  
+-e TZ=America/Los_Angeles \  
+-e PUID=1000 -e PGID=1000 \  
+-p 8087:8080 \  
+-v /mnt/storage/docker_config/kiwix:/data \  
+--restart unless-stopped \  
+kiwix/kiwix-serve \  
+fas-military-medicine_en.zim www.ready.gov_en.zim zimgit-knots_en.zim zimgit-post-disaster_en.zim wikipedia_en_all_nopic_2022-01.zim zimgit-food-preparation_en.zim zimgit-medicine_en.zim zimgit-water_en.zim
 ```
