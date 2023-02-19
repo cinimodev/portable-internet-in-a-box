@@ -61,7 +61,15 @@ SD card setup:
 *All paths shown below are the paths I have setup on my machine for the volumes. Adjust the file paths to your configuration.*
 
 ```bash
-docker run -d -e PUID=1000 -e PGID=1000 --name=filebrowser -v /mnt/storage/media/:/srv -v /mnt/storage/docker_config/filebrowser/filebrowser.db:/database.db -v /mnt/storage/docker_config/filebrowser/settings.json:/.filebrowser.json -p 8084:80 --restart unless-stopped filebrowser/filebrowser
+docker run -d \  
+-e PUID=1000 -e PGID=1000 \  
+--name=filebrowser \  
+-v /mnt/storage/media/:/srv \  
+-v /mnt/storage/docker_config/filebrowser/filebrowser.db:/database.db \  
+-v /mnt/storage/docker_config/filebrowser/settings.json:/.filebrowser.json \  
+-p 8084:80 \  
+--restart unless-stopped \  
+filebrowser/filebrowser
 ```
 
 #### Apps
